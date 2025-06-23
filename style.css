@@ -7,7 +7,7 @@
   --border-dark: #222;
 }
 
-/* Base Reset & Typography */
+/* Reset & base */
 * {
   box-sizing: border-box;
 }
@@ -39,25 +39,64 @@ li {
   font-size: 1.1rem;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
   padding: 80px 20px;
   text-align: center;
   color: var(--neon-green);
+  position: relative;
 }
 
 .has-bg {
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-    url('senImage1.jpg') center/cover no-repeat;
-  /* No border-radius or box-shadow for clean look */
+    url('senImage1.jpg') center center/cover no-repeat;
+  /* Make sure background fills and centers */
 }
 
-/* Services Section */
+/* Mode Toggle Button */
+.mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: 2px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+  z-index: 10;
+}
+
+.mode-toggle:hover {
+  background-color: var(--neon-green);
+  color: #000;
+  box-shadow:
+    0 0 10px var(--neon-green),
+    0 0 20px var(--neon-green);
+}
+
+/* About Me */
+.about-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ff8840;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Services */
 #services.bg-service {
   background:
     linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
-    url('senImage2.jpg') center/cover no-repeat;
+    url('senImage2.jpg') center center/cover no-repeat;
   border: 1px solid var(--border-dark);
   padding: 40px 20px;
   border-radius: 12px;
@@ -65,6 +104,27 @@ li {
   margin: 40px auto;
   box-shadow: 0 0 30px #00ff8850;
   color: var(--text-light);
+}
+
+/* Contact */
+.contact-section {
+  max-width: 400px;
+  margin: 30px auto;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.neon-link {
+  color: var(--neon-green);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.neon-link:hover {
+  color: #6bff59;
+  text-decoration: underline;
 }
 
 /* Consultation Form */
@@ -79,11 +139,13 @@ li {
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   color: var(--text-light);
+  display: none;
 }
 
 #consultation-form.show {
   opacity: 1;
   transform: translateY(0);
+  display: block;
 }
 
 #consultation-form h2 {
@@ -118,13 +180,12 @@ form textarea:focus {
   outline: none;
 }
 
+/* Neon Buttons */
 .neon-btn {
-  display: block;
-  width: 100%;
   background-color: var(--neon-green);
   border: none;
   color: #000;
-  padding: 14px;
+  padding: 14px 28px;
   font-size: 1.1rem;
   font-weight: 700;
   border-radius: 8px;
@@ -135,6 +196,7 @@ form textarea:focus {
     0 0 20px var(--neon-green),
     0 0 40px var(--neon-green);
   transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
 .neon-btn:hover {
@@ -146,11 +208,19 @@ form textarea:focus {
     0 0 50px #2aea00;
 }
 
+/* Form submission confirmation message */
+.form-message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
 /* Footer */
 footer {
   background:
     linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
-    url('senImage3.jpg') center/cover no-repeat;
+    url('senImage3.jpg') center center/cover no-repeat;
   color: var(--text-light);
   padding: 40px 20px;
   text-align: center;
@@ -202,5 +272,9 @@ body.light-mode form textarea {
     margin: 20px 10px 60px 10px;
     padding: 25px 15px;
   }
-}
 
+  .about-section {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+}
