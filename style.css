@@ -1,135 +1,84 @@
+/* Variables */
 :root {
-  --bg-dark: #0f0f0f;
-  --bg-light: #f8f8f8;
-  --text-dark: #f0f0f0;
-  --text-light: #111;
-  --primary: #00ff88;
-  --accent: #00d4ff;
-  --card-dark: rgba(25, 25, 25, 0.85);
-  --card-light: rgba(255, 255, 255, 0.9);
-  --border-dark: #00ff8840;
-  --border-light: #00aa8840;
+  --neon-green: #39ff14;
+  --bg-dark: #000;
+  --text-light: #eee;
+  --text-dark: #444;
+  --border-dark: #222;
+}
+
+/* Base Reset & Typography */
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-dark);
-  color: var(--text-dark);
-  line-height: 1.6;
-  transition: background 0.4s, color 0.4s;
-  padding: 20px;
-}
-
-body.light-mode {
-  background-color: var(--bg-light);
   color: var(--text-light);
-}
-
-header, main section {
-  background: var(--card-dark);
-  border: 1px solid var(--border-dark);
-  border-radius: 16px;
-  padding: 30px;
-  margin: 40px auto;
-  max-width: 800px;
-  box-shadow: 0 0 20px var(--border-dark);
-  backdrop-filter: blur(6px);
-  transition: background 0.4s, border 0.4s;
-}
-
-body.light-mode header,
-body.light-mode main section {
-  background: var(--card-light);
-  border: 1px solid var(--border-light);
-  box-shadow: 0 0 15px var(--border-light);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2 {
-  color: var(--primary);
-  margin-bottom: 15px;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  text-align: center;
 }
 
 ul {
-  padding-left: 0;
   list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
 }
 
-ul li {
-  margin-bottom: 15px;
+li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
 }
 
-ul li strong {
-  color: var(--accent);
+/* Hero Section */
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--neon-green);
 }
 
-a {
-  color: var(--primary);
-  text-decoration: none;
+.has-bg {
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+    url('senImage1.jpg') center/cover no-repeat;
+  /* No border-radius or box-shadow for clean look */
 }
 
-a:hover {
-  text-decoration: underline;
+/* Services Section */
+#services.bg-service {
+  background:
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
+    url('senImage2.jpg') center/cover no-repeat;
+  border: 1px solid var(--border-dark);
+  padding: 40px 20px;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 0 30px #00ff8850;
+  color: var(--text-light);
 }
 
-/* BUTTONS */
-button {
-  background-color: var(--primary);
-  color: #000;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.3s;
-  box-shadow: 0 0 10px var(--primary);
-  margin-top: 10px;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px var(--primary), 0 0 5px var(--primary);
-}
-
-body.light-mode button {
-  background-color: #00995e;
-  color: #fff;
-}
-
-/* FORM STYLES */
-form label {
-  font-weight: bold;
-  display: block;
-  margin-top: 15px;
-}
-
-form input, form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 6px;
-  background: rgba(0, 0, 0, 0.8);
-  color: var(--text-dark);
-  border: 1px solid var(--primary);
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border 0.2s;
-}
-
-form input:focus, form textarea:focus {
-  border-color: var(--accent);
-  outline: none;
-}
-
-body.light-mode form input,
-body.light-mode form textarea {
-  background: #fff;
-  color: #111;
-  border-color: #00aa88;
-}
-
+/* Consultation Form */
 #consultation-form {
+  max-width: 600px;
+  margin: 40px auto 80px auto;
+  background: #111;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ff8840;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  color: var(--text-light);
 }
 
 #consultation-form.show {
@@ -137,37 +86,121 @@ body.light-mode form textarea {
   transform: translateY(0);
 }
 
-/* FOOTER */
-footer {
+#consultation-form h2 {
+  margin-bottom: 1.5rem;
   text-align: center;
-  margin-top: 60px;
+  color: var(--neon-green);
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: none;
+  background: #222;
+  color: var(--text-light);
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  background: #333;
+  outline: none;
+}
+
+.neon-btn {
+  display: block;
+  width: 100%;
+  background-color: var(--neon-green);
+  border: none;
+  color: #000;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow:
+    0 0 5px var(--neon-green),
+    0 0 10px var(--neon-green),
+    0 0 20px var(--neon-green),
+    0 0 40px var(--neon-green);
+  transition: background-color 0.3s ease;
+}
+
+.neon-btn:hover {
+  background-color: #2aea00;
+  box-shadow:
+    0 0 10px #2aea00,
+    0 0 20px #2aea00,
+    0 0 30px #2aea00,
+    0 0 50px #2aea00;
+}
+
+/* Footer */
+footer {
+  background:
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+    url('senImage3.jpg') center/cover no-repeat;
+  color: var(--text-light);
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ff8840;
   font-size: 0.9rem;
-  color: #777;
+  margin-top: 60px;
+}
+
+/* Light mode override */
+body.light-mode {
+  background-color: #f7f7f7;
+  color: #222;
 }
 
 body.light-mode footer {
   color: #444;
 }
 
-.has-bg {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('senImage1.jpg') center/cover no-repeat;
-  
+body.light-mode #services.bg-service {
+  border-color: #ccc;
+  box-shadow: 0 0 30px #3eeb0f50;
+  color: #222;
 }
 
-.bg-service {
-  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('senImage2.jpg') center/cover no-repeat;
-  border: 1px solid var(--border-dark);
-  box-shadow: 0 0 30px #00ff8850;
+body.light-mode #consultation-form {
+  background: #ddd;
+  color: #111;
 }
 
-footer {
-  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('senImage3.jpg') center/cover no-repeat;
-  color: #fff;
-  padding: 40px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #00ff8840;
-  text-align: center;
-  font-size: 0.9rem;
-  margin-top: 60px;
+body.light-mode form input,
+body.light-mode form textarea {
+  background: #fff;
+  color: #222;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 10px;
+  }
+
+  #services.bg-service {
+    margin: 20px 10px;
+    padding: 30px 15px;
+  }
+
+  #consultation-form {
+    margin: 20px 10px 60px 10px;
+    padding: 25px 15px;
+  }
 }
 
