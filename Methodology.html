@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Methodology | Joshua Wilson Ethical Hacker</title>
+  <meta name="description" content="Learn the step-by-step methodology Joshua Wilson uses for penetration testing, vulnerability assessment, and cybersecurity services." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-mode">
+
+  <header>
+    <div class="hero has-bg" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('senImage1.jpg');">
+      <h1>Methodology</h1>
+      <nav class="main-nav">
+        <a href="index.html" class="neon-link">Home</a>
+        <a href="methodology.html" class="neon-link">Methodology</a>
+      </nav>
+      <button id="modeToggle" class="mode-toggle">Light Mode</button>
+    </div>
+  </header>
+
+  <main class="methodology-content">
+    <section>
+      <h2>How I Work</h2>
+      <ol>
+        <li><strong>Initial Recon & Scoping:</strong> Understanding your systems, goals, and defining the scope of work.</li>
+        <li><strong>Vulnerability Scanning:</strong> Using automated and manual tools to identify weaknesses.</li>
+        <li><strong>Exploitation & Penetration:</strong> Ethical attempts to exploit vulnerabilities to assess real risks.</li>
+        <li><strong>Reporting & Recommendations:</strong> Clear, actionable reports detailing findings and fixes.</li>
+        <li><strong>Follow-up & Retesting:</strong> Confirming vulnerabilities have been resolved and verifying security posture.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Joshua Wilson | All rights reserved</p>
+  </footer>
+
+  <script>
+    // Copy your existing dark/light toggle code here for this page's button:
+    const modeToggle = document.getElementById('modeToggle');
+    modeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('light-mode')) {
+        modeToggle.textContent = 'Dark Mode';
+      } else {
+        modeToggle.textContent = 'Light Mode';
+      }
+    });
+  </script>
+
+</body>
+</html>
