@@ -1,113 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="https://unpkg.com/lucide@latest"></script>
-
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Methodology | Joshua Wilson Ethical Hacker</title>
-  <meta name="description" content="Learn the step-by-step methodology Joshua Wilson uses for penetration testing, vulnerability assessment, and cybersecurity services." />
-  <link rel="stylesheet" href="style.css" />
+  <title>Methodology | Josh Wilson Security</title>
+  <meta name="description" content="Josh Wilson's methodology for ethical hacking and cybersecurity services." />
+  <style>
+    :root {
+      --neon-green: #39ff14;
+      --dark-bg: #0a0a0a;
+      --light-bg: #f9f9f9;
+      --text-dark: #222;
+      --text-light: #eee;
+      --border-radius: 12px;
+    }
+    body {
+      margin: 0; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.light-mode {
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #111, #000);
+      border-bottom: 2px solid var(--neon-green);
+      box-shadow: 0 2px 8px #00ff8820;
+      max-width: 900px;
+      margin: 40px auto 0;
+      border-radius: var(--border-radius);
+    }
+    nav a {
+      color: var(--neon-green);
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    nav a[aria-current="page"] {
+      text-decoration: underline;
+      cursor: default;
+    }
+
+    #modeToggle {
+      background: none;
+      border: 2px solid var(--neon-green);
+      border-radius: var(--border-radius);
+      color: var(--neon-green);
+      padding: 8px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.3s ease;
+    }
+    #modeToggle:hover {
+      background-color: var(--neon-green);
+      color: #000;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      border-radius: var(--border-radius);
+      box-shadow: 0 0 30px var(--neon-green);
+      transition: background-color 0.3s;
+    }
+    body.light-mode main {
+      background: rgba(240,240,240,0.9);
+      box-shadow: 0 0 30px #2aea00;
+    }
+
+    h1, h2 {
+      color: var(--neon-green);
+      user-select: none;
+      margin-top: 0;
+    }
+    p, li {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    ul {
+      padding-left: 20px;
+    }
+
+    details {
+      background: rgba(0,0,0,0.4);
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--neon-green);
+      box-shadow: 0 0 10px var(--neon-green);
+      transition: background-color 0.3s;
+    }
+    details[open] {
+      background: rgba(0,0,0,0.7);
+      box-shadow: 0 0 25px var(--neon-green);
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--neon-green);
+      outline: none;
+      user-select: none;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    /* Custom arrow icon */
+    summary::before {
+      content: "▶";
+      display: inline-block;
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+    }
+    details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    footer {
+      max-width: 900px;
+      margin: 40px auto 40px;
+      padding: 20px;
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95));
+      color: var(--neon-green);
+      text-align: center;
+      border-radius: var(--border-radius);
+      box-shadow: 0 0 20px var(--neon-green);
+      user-select: none;
+    }
+    footer a {
+      color: var(--neon-green);
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body class="dark-mode">
 
-  <header>
-    <div class="hero has-bg" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('senImage1.jpg');">
-      <h1>Methodology</h1>
-      <nav class="main-nav">
-        <a href="index.html" class="neon-link">Home</a>
-        <a href="methodology.html" class="neon-link">Methodology</a>
-      </nav>
-      <button id="modeToggle" class="mode-toggle">Light Mode</button>
-    </div>
-  </header>
+<header>
+  <div class="header-left" style="display:flex; align-items:center; gap:12px;">
+    <img src="Logo.jpg" alt="Josh Wilson Logo" style="height:40px; border-radius:8px;" />
+    <span class="site-title" style="color: var(--neon-green); font-weight:700; font-size:1.4rem;">Josh Wilson Security</span>
+    <button id="modeToggle" aria-label="Toggle Dark/Light Mode">Light Mode</button>
+  </div>
 
-  <main class="methodology-content">
+  <nav aria-label="Primary Navigation">
+    <a href="index.html">Home</a>
+    <a href="methodology.html" aria-current="page" style="text-decoration: underline;">Methodology</a>
+    <a href="about.html">About Me</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section>
-    <h2>How I Work</h2>
+<main>
+  <h1>My Methodology</h1>
+  
+  <details>
+    <summary>Penetration Testing</summary>
+    <ul>
+      <li>Information Gathering – Identify targets and gather intelligence.</li>
+      <li>Vulnerability Analysis – Scan and enumerate vulnerabilities.</li>
+      <li>Exploitation – Simulate attacks to exploit weaknesses.</li>
+      <li>Post-Exploitation – Assess impact and escalate access.</li>
+      <li>Reporting – Provide detailed findings and remediation guidance.</li>
+    </ul>
+  </details>
 
-    <details open data-icon="list-check">
-      <summary><i class="icon" data-lucide></i><span>General Methodology</span></summary>
-      <ul>
-        <li><strong>Discovery & Scoping:</strong> Understand goals, define scope, draft Statement of Work.</li>
-        <li><strong>Reconnaissance:</strong> Passive and active info gathering (OSINT, scans, enumeration).</li>
-        <li><strong>Assessment / Exploitation:</strong> Probe systems using scoped tools and techniques.</li>
-        <li><strong>Documentation & Evidence:</strong> Screenshot everything, maintain logs, preserve integrity.</li>
-        <li><strong>Reporting:</strong> Severity-based findings, technical + executive summaries.</li>
-        <li><strong>Remediation Support:</strong> Patch consulting, security policy reinforcement, dev help.</li>
-        <li><strong>Debrief & Retest:</strong> Final report walkthrough, optional retest if scoped.</li>
-      </ul>
-    </details>
+  <details>
+    <summary>Vulnerability Assessments</summary>
+    <ul>
+      <li>Asset Identification – Catalog all systems and applications.</li>
+      <li>Vulnerability Scanning – Automated and manual scans.</li>
+      <li>Risk Prioritization – Evaluate based on severity and exploitability.</li>
+      <li>Remediation Planning – Recommend fixes and mitigations.</li>
+      <li>Verification – Rescan to confirm vulnerabilities are resolved.</li>
+    </ul>
+  </details>
 
-    <details data-icon="shield-alert">
-      <summary><i class="icon" data-lucide></i><span>Penetration Testing</span></summary>
-      <ul>
-        <li>Simulate real-world attacks to test your defenses.</li>
-        <li>Manual & automated testing using tools like Nmap, Burp, Metasploit.</li>
-        <li>Focus on chaining vulnerabilities for full compromise scenarios.</li>
-      </ul>
-    </details>
+  <details>
+    <summary>Network Security Audits</summary>
+    <ul>
+      <li>Network Mapping – Document network architecture and devices.</li>
+      <li>Configuration Review – Check firewalls, ACLs, and policies.</li>
+      <li>Penetration Testing – Test network defenses and segmentation.</li>
+      <li>Policy Compliance – Ensure alignment with standards (e.g., NIST, ISO).</li>
+      <li>Reporting & Recommendations – Actionable security improvements.</li>
+    </ul>
+  </details>
 
-    <details data-icon="bug">
-      <summary><i class="icon" data-lucide></i><span>Vulnerability Assessment</span></summary>
-      <ul>
-        <li>Scan and identify weaknesses using Nessus, OpenVAS, and manual validation.</li>
-        <li>No exploitation, just identification with remediation guidance.</li>
-        <li>Focus on eliminating false positives and prioritizing fixes.</li>
-      </ul>
-    </details>
+  <details>
+    <summary>Social Engineering Tests</summary>
+    <ul>
+      <li>Reconnaissance – Gather employee info and organizational data.</li>
+      <li>Phishing Campaigns – Design and launch controlled email attacks.</li>
+      <li>Physical Tests – Attempt unauthorized physical access (if authorized).</li>
+      <li>Training Recommendations – Educate staff based on results.</li>
+      <li>Detailed Reporting – Document findings and risks.</li>
+    </ul>
+  </details>
 
-    <details data-icon="wifi">
-      <summary><i class="icon" data-lucide></i><span>Network Security Audits</span></summary>
-      <ul>
-        <li>Review firewall configs, exposed ports, internal segmentation.</li>
-        <li>Check for legacy protocols and misconfigured services.</li>
-        <li>Recommend architecture adjustments and hardening steps.</li>
-      </ul>
-    </details>
+  <details>
+    <summary>Red Team Operations</summary>
+    <ul>
+      <li>Objective Definition – Align on goals and scope.</li>
+      <li>Recon & Planning – Intelligence gathering and attack strategy.</li>
+      <li>Execution – Multi-vector simulated attacks.</li>
+      <li>Post-Op Analysis – Assess success and gaps.</li>
+      <li>Comprehensive Reporting – Executive and technical reports.</li>
+    </ul>
+  </details>
 
-    <details data-icon="users">
-      <summary><i class="icon" data-lucide></i><span>Social Engineering</span></summary>
-      <ul>
-        <li>Phishing simulations, vishing calls, and USB drops (as scoped).</li>
-        <li>Use OSINT to craft believable lures and pretexts.</li>
-        <li>Human-layer risk scoring and training recommendations.</li>
-      </ul>
-    </details>
-
-    <details data-icon="flame">
-      <summary><i class="icon" data-lucide></i><span>Red Team Ops</span></summary>
-      <ul>
-        <li>Adversary simulation using all attack surfaces: digital, physical, social.</li>
-        <li>Emphasis on stealth, lateral movement, persistence.</li>
-        <li>Objective-driven: "can we get Domain Admin without alerting anyone?"</li>
-      </ul>
-    </details>
-
-    <details data-icon="microscope">
-      <summary><i class="icon" data-lucide></i><span>Incident Response & Forensics</span></summary>
-      <ul>
-        <li>System imaging, memory analysis, and log correlation.</li>
-        <li>Reconstruct breach timelines and identify compromise methods.</li>
-        <li>Preserve evidence and support legal/HR actions if necessary.</li>
-      </ul>
-    </details>
-
-  </section>
+  <details>
+    <summary>Incident Response & Forensics</summary>
+    <ul>
+      <li>Detection & Identification – Confirm breach and scope.</li>
+      <li>Containment – Stop ongoing damage and isolate affected systems.</li>
+      <li>Eradication – Remove threats and vulnerabilities.</li>
+      <li>Recovery – Restore systems and services.</li>
+      <li>Lessons Learned – Post-incident review and improvements.</li>
+    </ul>
+  </details>
 </main>
 
- 
-    
-  </main>
+<footer id="contact">
+  <p>Email: <a href="mailto:legendarycoke@gmail.com">legendarycoke@gmail.com</a></p>
+  <p>© 2025 Josh Wilson | All rights reserved</p>
+</footer>
 
-  <footer>
-    <p>© 2025 Joshua Wilson | All rights reserved</p>
-  </footer>
-
-  <script><script>
-  lucide.createIcons();
-
-  // Light/Dark mode toggle
+<script>
   const modeToggle = document.getElementById('modeToggle');
   modeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
@@ -115,19 +246,6 @@
     modeToggle.textContent = document.body.classList.contains('light-mode') ? 'Dark Mode' : 'Light Mode';
   });
 </script>
-
-    // Copy your existing dark/light toggle code here for this page's button:
-    const modeToggle = document.getElementById('modeToggle');
-    modeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      document.body.classList.toggle('dark-mode');
-      if(document.body.classList.contains('light-mode')) {
-        modeToggle.textContent = 'Dark Mode';
-      } else {
-        modeToggle.textContent = 'Light Mode';
-      }
-    });
-  </script>
 
 </body>
 </html>
