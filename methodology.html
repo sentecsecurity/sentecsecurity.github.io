@@ -22,12 +22,12 @@
   </header>
 
   <main class="methodology-content">
-    
+
   <section>
     <h2>How I Work</h2>
 
-    <details open>
-      <summary><strong>General Methodology</strong></summary>
+    <details open data-icon="list-check">
+      <summary><i class="icon" data-lucide></i><span>General Methodology</span></summary>
       <ul>
         <li><strong>Discovery & Scoping:</strong> Understand goals, define scope, draft Statement of Work.</li>
         <li><strong>Reconnaissance:</strong> Passive and active info gathering (OSINT, scans, enumeration).</li>
@@ -39,8 +39,8 @@
       </ul>
     </details>
 
-    <details>
-      <summary><strong>Penetration Testing</strong></summary>
+    <details data-icon="shield-alert">
+      <summary><i class="icon" data-lucide></i><span>Penetration Testing</span></summary>
       <ul>
         <li>Simulate real-world attacks to test your defenses.</li>
         <li>Manual & automated testing using tools like Nmap, Burp, Metasploit.</li>
@@ -48,8 +48,8 @@
       </ul>
     </details>
 
-    <details>
-      <summary><strong>Vulnerability Assessment</strong></summary>
+    <details data-icon="bug">
+      <summary><i class="icon" data-lucide></i><span>Vulnerability Assessment</span></summary>
       <ul>
         <li>Scan and identify weaknesses using Nessus, OpenVAS, and manual validation.</li>
         <li>No exploitation, just identification with remediation guidance.</li>
@@ -57,8 +57,8 @@
       </ul>
     </details>
 
-    <details>
-      <summary><strong>Network Security Audits</strong></summary>
+    <details data-icon="wifi">
+      <summary><i class="icon" data-lucide></i><span>Network Security Audits</span></summary>
       <ul>
         <li>Review firewall configs, exposed ports, internal segmentation.</li>
         <li>Check for legacy protocols and misconfigured services.</li>
@@ -66,8 +66,8 @@
       </ul>
     </details>
 
-    <details>
-      <summary><strong>Social Engineering Tests</strong></summary>
+    <details data-icon="users">
+      <summary><i class="icon" data-lucide></i><span>Social Engineering</span></summary>
       <ul>
         <li>Phishing simulations, vishing calls, and USB drops (as scoped).</li>
         <li>Use OSINT to craft believable lures and pretexts.</li>
@@ -75,8 +75,8 @@
       </ul>
     </details>
 
-    <details>
-      <summary><strong>Red Team Operations</strong></summary>
+    <details data-icon="flame">
+      <summary><i class="icon" data-lucide></i><span>Red Team Ops</span></summary>
       <ul>
         <li>Adversary simulation using all attack surfaces: digital, physical, social.</li>
         <li>Emphasis on stealth, lateral movement, persistence.</li>
@@ -84,8 +84,8 @@
       </ul>
     </details>
 
-    <details>
-      <summary><strong>Incident Response & Forensics</strong></summary>
+    <details data-icon="microscope">
+      <summary><i class="icon" data-lucide></i><span>Incident Response & Forensics</span></summary>
       <ul>
         <li>System imaging, memory analysis, and log correlation.</li>
         <li>Reconstruct breach timelines and identify compromise methods.</li>
@@ -95,6 +95,7 @@
 
   </section>
 </main>
+
  
     
   </main>
@@ -103,7 +104,18 @@
     <p>© 2025 Joshua Wilson | All rights reserved</p>
   </footer>
 
-  <script>
+  <script><script>
+  lucide.createIcons();
+
+  // Light/Dark mode toggle
+  const modeToggle = document.getElementById('modeToggle');
+  modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    document.body.classList.toggle('dark-mode');
+    modeToggle.textContent = document.body.classList.contains('light-mode') ? 'Dark Mode' : 'Light Mode';
+  });
+</script>
+
     // Copy your existing dark/light toggle code here for this page's button:
     const modeToggle = document.getElementById('modeToggle');
     modeToggle.addEventListener('click', () => {
