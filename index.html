@@ -9,6 +9,8 @@
 <body>
   <header>
     <div class="hero">
+      <button id="toggle-theme">Toggle Theme</button>
+
       <h1>Josh Wilson</h1>
       <p class="tagline"><span id="typed-text"></span><span class="cursor">|</span></p>
       <button onclick="showConsultationForm()">Request a Consultation</button>
@@ -115,6 +117,12 @@
     document.addEventListener("DOMContentLoaded", () => {
       typeLoop();
     });
+    // Theme toggle
+const toggleBtn = document.getElementById('toggle-theme');
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+
   </script>
 </body>
 </html>
