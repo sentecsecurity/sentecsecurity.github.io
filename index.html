@@ -5,35 +5,211 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Joshua Wilson | Ethical Hacker</title>
   <meta name="description" content="Joshua Wilson - Ethical hacking, penetration testing, system hardening, social engineering, and digital forensics services." />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --neon-green: #39ff14;
+      --dark-bg: #0a0a0a;
+      --light-bg: #f9f9f9;
+      --text-dark: #222;
+      --text-light: #eee;
+      --border-radius: 12px;
+    }
+    body {
+      margin: 0; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.light-mode {
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    /* Header */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #111, #000);
+      border-bottom: 2px solid var(--neon-green);
+      box-shadow: 0 2px 8px #00ff8820;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .site-logo {
+      height: 50px;
+      border-radius: 8px;
+    }
+    .site-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--neon-green);
+      user-select: none;
+    }
+    .header-nav a {
+      color: var(--neon-green);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 12px;
+      transition: color 0.2s ease;
+    }
+    .header-nav a:hover {
+      color: #fff;
+    }
+    #consultBtn {
+      background-color: var(--neon-green);
+      color: #000;
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 10px 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #consultBtn:hover {
+      background-color: #2edc13;
+    }
+
+    /* Dark/Light toggle button */
+    #modeToggle {
+      background: none;
+      border: 2px solid var(--neon-green);
+      border-radius: var(--border-radius);
+      color: var(--neon-green);
+      padding: 8px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 20px;
+      user-select: none;
+      transition: all 0.3s ease;
+    }
+    #modeToggle:hover {
+      background-color: var(--neon-green);
+      color: #000;
+    }
+
+    /* Sections */
+    main, section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      border-radius: var(--border-radius);
+      box-shadow: 0 0 30px var(--neon-green);
+      transition: background-color 0.3s;
+    }
+    body.light-mode main, body.light-mode section {
+      background: rgba(240,240,240,0.9);
+      box-shadow: 0 0 30px #2aea00;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--neon-green);
+      user-select: none;
+    }
+    p, li {
+      line-height: 1.5;
+      font-size: 1.1rem;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    /* Consultation Form */
+    #consultation-form {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    #consultation-form.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #consultation-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    #consultation-form label {
+      font-weight: 600;
+      user-select: none;
+    }
+    #consultation-form input[type="text"],
+    #consultation-form input[type="email"],
+    #consultation-form input[type="tel"],
+    #consultation-form textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 2px solid var(--neon-green);
+      background: transparent;
+      color: inherit;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    #consultation-form input:focus,
+    #consultation-form textarea:focus {
+      outline: none;
+      border-color: #2edc13;
+    }
+    #consultation-form button[type="submit"] {
+      background-color: var(--neon-green);
+      border: none;
+      padding: 12px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: var(--border-radius);
+      transition: background-color 0.3s ease;
+    }
+    #consultation-form button[type="submit"]:hover {
+      background-color: #2edc13;
+    }
+
+    #formMessage {
+      margin-top: 12px;
+      font-weight: 600;
+      display: none;
+      user-select: none;
+    }
+  </style>
 </head>
 <body class="dark-mode">
 
   <header class="site-header">
-  <div class="header-left">
-    <img src="Logo.jpg" alt="Josh Wilson Logo" class="site-logo">
-    <span class="site-title">Josh Wilson Security</span>
-  </div>
+    <div class="header-left">
+      <img src="Logo.jpg" alt="Josh Wilson Logo" class="site-logo" />
+      <span class="site-title">Josh Wilson Security</span>
+      <button id="modeToggle" aria-label="Toggle Dark/Light Mode">Light Mode</button>
+    </div>
 
-  <nav class="header-nav">
-    <a href="index.html">Home</a>
-    <a href="methodology.html">Methodology</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <nav class="header-nav" aria-label="Primary Navigation">
+      <a href="index.html">Home</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-  <button id="consultBtn" onclick="showConsultationForm()">Request Consultation</button>
-</header>
-
+    <button id="consultBtn" onclick="showConsultationForm()">Request Consultation</button>
+  </header>
 
   <section id="about-me" class="about-section">
     <h2>About Me</h2>
     <p>
-      I'm Josh, a White-Hat hacker with experience in pentesting, system scans, machine hardening, social engineering, code-breaking, and forensics. I am a 22-year-old college student with CyberPatriot competition experience, as well as AFA Advanced Cyber Camp experience. To fulfill the outlined services, I use my proprietary AI Sentinel, as well as a range of tools and suites in order to complete your tasks efficiently and safely.
+      I'm Josh, a White-Hat hacker with experience in pentesting, system scans, machine hardening, social engineering, code-breaking, and forensics.
+      I am a 22-year-old college student with CyberPatriot competition experience, as well as AFA Advanced Cyber Camp experience.
+      To fulfill the outlined services, I use my proprietary AI Sentinel, as well as a range of tools and suites to complete your tasks efficiently and safely.
     </p>
   </section>
 
   <main>
-
     <section id="services" class="bg-service">
       <h2>What I Do</h2>
       <ul>
@@ -46,109 +222,96 @@
       </ul>
     </section>
 
-    <section id="contact" class="contact-section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:legendarycoke@gmail.com" class="neon-link">legendarycoke@gmail.com</a></p>
-    </section>
-
-    <section id="consultation-form" style="display:none;">
+    <section id="consultation-form">
       <h2>Request a Consultation</h2>
-      <form id="consultForm" method="POST" action="https://formspree.io/f/manjpdne">
+      <form id="consultForm" action="https://formspree.io/f/manjpdne" method="POST" novalidate>
         <label for="name">Name*</label>
-        <input type="text" id="name" name="name" required />
+        <input type="text" id="name" name="name" required autocomplete="name" />
 
         <label for="company">Company (Optional)</label>
-        <input type="text" id="company" name="company" />
+        <input type="text" id="company" name="company" autocomplete="organization" />
 
         <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" />
+        <input type="tel" id="phone" name="phone" autocomplete="tel" />
 
         <label for="email">Email*</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="_replyto" required autocomplete="email" />
 
         <label for="description">Project Description*</label>
         <textarea id="description" name="description" rows="5" required></textarea>
 
-        <!-- Honeypot field for spam protection -->
-        <input type="text" name="website" id="website" style="display:none" autocomplete="off" />
+        <!-- Honeypot field -->
+        <input type="text" name="website" id="website" style="display:none" autocomplete="off" tabindex="-1" />
 
-        <button type="submit" class="neon-btn">Submit</button>
+        <button type="submit">Submit</button>
       </form>
-
-      <p id="formMessage" class="form-message" style="display:none;"></p>
+      <div id="formMessage" role="alert" aria-live="polite"></div>
     </section>
-
   </main>
 
-  <footer>
-    <p>© 2025 Joshua Wilson | All rights reserved</p>
+  <footer id="contact" style="text-align:center; padding: 20px; color: var(--neon-green); user-select:none;">
+    <p>Email: <a href="mailto:legendarycoke@gmail.com" style="color: var(--neon-green); text-decoration: underline;">legendarycoke@gmail.com</a></p>
+    <p>© 2025 Josh Wilson | All rights reserved</p>
   </footer>
 
   <script>
-    // Scroll to and show form with animation
-    function scrollToForm() {
-      const formSection = document.getElementById('consultation-form');
-      formSection.style.display = 'block';
-      setTimeout(() => {
-        formSection.classList.add('show');
-      }, 10);
-      formSection.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Dark/Light mode toggle logic
-    const modeToggle = document.getElementById('modeToggle');
-    modeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      document.body.classList.toggle('dark-mode');
-      if(document.body.classList.contains('light-mode')) {
-        modeToggle.textContent = 'Dark Mode';
-      } else {
-        modeToggle.textContent = 'Light Mode';
-      }
-    });
-
-    // Form submission handling with confirmation and spam check
-    const form = document.getElementById('consultForm');
-    const formMessage = document.getElementById('formMessage');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Honeypot spam check
-      if (form.website.value !== "") {
-        // Bot detected - silently fail or show error
-        formMessage.style.color = 'red';
-        formMessage.textContent = 'Spam detected. Submission blocked.';
-        formMessage.style.display = 'block';
-        return;
-      }
-
-      // Send the form data to Formspree via fetch API
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: formData,
-          headers: { 'Accept': 'application/json' }
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dark/light toggle
+      const modeToggle = document.getElementById('modeToggle');
+      if (modeToggle) {
+        modeToggle.addEventListener('click', () => {
+          document.body.classList.toggle('light-mode');
+          document.body.classList.toggle('dark-mode');
+          modeToggle.textContent = document.body.classList.contains('light-mode') ? 'Dark Mode' : 'Light Mode';
         });
+      }
 
-        if (response.ok) {
-          formMessage.style.color = '#39ff14'; // neon green
-          formMessage.textContent = 'Thanks for reaching out! I will get back to you soon.';
-          formMessage.style.display = 'block';
-          form.reset();
-        } else {
-          throw new Error('Network response was not ok.');
-        }
-      } catch (error) {
-        formMessage.style.color = 'red';
-        formMessage.textContent = 'Oops! Something went wrong. Please try again later.';
-        formMessage.style.display = 'block';
+      // Consultation form show + animation
+      function scrollToForm() {
+        const formSection = document.getElementById('consultation-form');
+        if (!formSection) return;
+        formSection.style.display = 'block';
+        setTimeout(() => formSection.classList.add('show'), 10);
+        formSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      window.showConsultationForm = scrollToForm; // global function for button
+
+      // Form submit + spam check
+      const form = document.getElementById('consultForm');
+      const formMessage = document.getElementById('formMessage');
+      if (form && formMessage) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          if (form.website.value !== "") {
+            formMessage.style.color = 'red';
+            formMessage.textContent = 'Spam detected. Submission blocked.';
+            formMessage.style.display = 'block';
+            return;
+          }
+          const formData = new FormData(form);
+          try {
+            const response = await fetch(form.action, {
+              method: form.method,
+              body: formData,
+              headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+              formMessage.style.color = '#39ff14';
+              formMessage.textContent = 'Thanks for reaching out! I will get back to you soon.';
+              formMessage.style.display = 'block';
+              form.reset();
+            } else {
+              throw new Error('Network response was not ok.');
+            }
+          } catch (err) {
+            formMessage.style.color = 'red';
+            formMessage.textContent = 'Oops! Something went wrong. Please try again later.';
+            formMessage.style.display = 'block';
+          }
+        });
       }
     });
   </script>
-
 </body>
 </html>
 
