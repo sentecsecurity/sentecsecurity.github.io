@@ -9,16 +9,19 @@
 </head>
 <body class="dark-mode">
 
-  <header>
-  <div class="hero has-bg">
-    <h1>Joshua Wilson</h1>
-    <nav class="main-nav">
-      <a href="index.html" class="neon-link">Home</a>
-      <a href="methodology.html" class="neon-link">Methodology</a>
-    </nav>
-    <button onclick="scrollToForm()" class="neon-btn">Request a Consultation</button>
-    <button id="modeToggle" class="mode-toggle">Light Mode</button>
+  <header class="site-header">
+  <div class="header-left">
+    <img src="logo.jpg" alt="Josh Wilson Logo" class="site-logo">
+    <span class="site-title">Josh Wilson Security</span>
   </div>
+
+  <nav class="header-nav">
+    <a href="index.html">Home</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button id="consultBtn" onclick="showConsultationForm()">Request Consultation</button>
 </header>
 
 
