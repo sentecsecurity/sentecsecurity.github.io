@@ -13,7 +13,7 @@
   <div class="hero has-bg">
     <h1>Josh Wilson</h1>
     <p class="tagline"><span id="typed-text"></span><span class="cursor">|</span></p>
-    <button onclick="showConsultationForm()">Request a Consultation</button>
+    <button onclick="scrollToForm()">Request a Consultation</button>
   </div>
 </header>
 
@@ -77,9 +77,21 @@
   </footer>
 
   <script>
-    function showConsultationForm() {
-      const form = document.getElementById('consultation-form');
-      form.style.display = 'block';
+   function scrollToForm() {
+  const formSection = document.getElementById('consultation-form');
+
+  // Show the form
+  formSection.style.display = 'block';
+
+  // Trigger the fade/slide animation with 'show' class
+  setTimeout(() => {
+    formSection.classList.add('show');
+  }, 10);
+
+  // Smooth scroll to the form
+  formSection.scrollIntoView({ behavior: 'smooth' });
+}
+
       setTimeout(() => {
         form.classList.add('show');
       }, 10);
