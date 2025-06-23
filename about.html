@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Josh Wilson | Ethical Hacker</title>
+  <meta name="description" content="About Joshua Wilson - Ethical hacker specializing in penetration testing, social engineering, and digital forensics." />
+  <style>
+    :root {
+      --neon-green: #39ff14;
+      --dark-bg: #0a0a0a;
+      --light-bg: #f9f9f9;
+      --text-dark: #222;
+      --text-light: #eee;
+      --border-radius: 12px;
+    }
+    body {
+      margin: 0; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.light-mode {
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    /* Header */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #111, #000);
+      border-bottom: 2px solid var(--neon-green);
+      box-shadow: 0 2px 8px #00ff8820;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .site-logo {
+      height: 50px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px var(--neon-green);
+    }
+    .site-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--neon-green);
+      user-select: none;
+    }
+    .header-nav a {
+      color: var(--neon-green);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 12px;
+      transition: color 0.2s ease;
+    }
+    .header-nav a:hover {
+      color: #fff;
+    }
+
+    /* Dark/Light toggle button */
+    #modeToggle {
+      background: none;
+      border: 2px solid var(--neon-green);
+      border-radius: var(--border-radius);
+      color: var(--neon-green);
+      padding: 8px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 20px;
+      user-select: none;
+      transition: all 0.3s ease;
+    }
+    #modeToggle:hover {
+      background-color: var(--neon-green);
+      color: #000;
+    }
+
+    /* Main content */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      border-radius: var(--border-radius);
+      box-shadow: 0 0 30px var(--neon-green);
+      transition: background-color 0.3s;
+    }
+    body.light-mode main {
+      background: rgba(240,240,240,0.9);
+      box-shadow: 0 0 30px #2aea00;
+    }
+
+    h1, h2 {
+      color: var(--neon-green);
+      user-select: none;
+      margin-top: 0;
+    }
+    p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    /* Footer logo */
+    .footer-logo-container {
+      max-width: 900px;
+      margin: 60px auto 40px;
+      text-align: center;
+    }
+    .footer-logo {
+      height: 180px;
+      filter: drop-shadow(0 0 8px var(--neon-green));
+      border-radius: 20px;
+      transition: filter 0.3s ease;
+    }
+    .footer-logo:hover {
+      filter: drop-shadow(0 0 16px #2aea00);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--neon-green);
+      user-select: none;
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+<body class="dark-mode">
+
+  <header class="site-header">
+    <div class="header-left">
+      <img src="Logo.jpg" alt="Josh Wilson Logo" class="site-logo" />
+      <span class="site-title">Josh Wilson Security</span>
+      <button id="modeToggle" aria-label="Toggle Dark/Light Mode">Light Mode</button>
+    </div>
+
+    <nav class="header-nav" aria-label="Primary Navigation">
+      <a href="index.html">Home</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="about.html" aria-current="page">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>About Me</h1>
+    <p>
+      Hey, I’m Josh — a dedicated White-Hat hacker passionate about making digital spaces safer. With experience ranging from penetration testing to social engineering, system hardening, and digital forensics, I bring a comprehensive approach to cybersecurity.
+    </p>
+    <p>
+      As a 22-year-old college student, I’ve honed my skills through competitions like CyberPatriot and the AFA Advanced Cyber Camp. I use my proprietary AI Sentinel along with top-tier tools to deliver efficient and secure services.
+    </p>
+    <p>
+      When you work with me, you get a hacker who understands both the technical and human sides of security. Let’s work together to protect what matters.
+    </p>
+  </main>
+
+  <div class="footer-logo-container">
+    <img src="Logo.jpg" alt="Josh Wilson Logo" class="footer-logo" />
+  </div>
+
+  <footer id="contact">
+    <p>Email: <a href="mailto:legendarycoke@gmail.com" style="color: var(--neon-green); text-decoration: underline;">legendarycoke@gmail.com</a></p>
+    <p>© 2025 Josh Wilson | All rights reserved</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dark/light toggle
+      const modeToggle = document.getElementById('modeToggle');
+      if (modeToggle) {
+        modeToggle.addEventListener('click', () => {
+          document.body.classList.toggle('light-mode');
+          document.body.classList.toggle('dark-mode');
+          modeToggle.textContent = document.body.classList.contains('light-mode') ? 'Dark Mode' : 'Light Mode';
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
