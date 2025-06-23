@@ -3,144 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Josh Wilson | Ethical Hacker</title>
+  <title>Joshua Wilson | Ethical Hacker</title>
+  <meta name="description" content="Joshua Wilson - Ethical hacking, penetration testing, system hardening, social engineering, and digital forensics services." />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="dark-mode">
+
   <header>
-    <div class="hero">
-      <header>
-  <div class="hero has-bg">
-    <h1>Josh Wilson</h1>
-    <p class="tagline"><span id="typed-text"></span><span class="cursor">|</span></p>
-    <button onclick="scrollToForm()">Request a Consultation</button>
-  </div>
-</header>
-
-      <button id="toggle-theme">Toggle Theme</button>
-
-     
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm Josh, a White-Hat hacker with experience in pentesting, system scans, and machine hardening, as well as social engineering, code-breaking, and forensics.
-        I am a 22-year-old college student with a strong set of skills and a passion for cybersecurity.
-        I use my own proprietary AI security sentinel and a range of specialized tools to provide the services outlined above.
+    <div class="hero has-bg">
+      <h1>Joshua Wilson</h1>
+      <p class="tagline">
+        I'm Josh, a White-Hat hacker with experience in pentesting, system scans, machine hardening, social engineering, code-breaking, and forensics.
       </p>
-    </section>
+      <p class="tagline">
+        22-year-old college student leveraging NSA experience, CyberPatriot competitions, and multiple cyber certifications.
+      </p>
+      <button onclick="scrollToForm()">Request a Consultation</button>
+    </div>
+  </header>
+
+  <main>
 
     <section id="services" class="bg-service">
-  <h2>What I Do</h2>
-  <ul>
-    <li><strong>Penetration Testing:</strong> Simulated attacks to reveal real vulnerabilities in your systems.</li>
-    <li><strong>Vulnerability Assessments:</strong> Scans and analysis to find and prioritize weaknesses.</li>
-    <li><strong>Network Security Audits:</strong> Deep inspections of your network configuration and architecture.</li>
-    <li><strong>Social Engineering Tests:</strong> Phishing and human-layer attacks to test your people, not just your machines.</li>
-    <li><strong>Red Team Operations:</strong> Full-scope adversarial simulations to stress-test your entire security posture.</li>
-    <li><strong>Incident Response & Forensics:</strong> Post-breach analysis and containment to get you back in control.</li>
-  </ul>
-</section>
-
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="legendarycoke@gmail.com">legendarycoke@gmail.com</a></p>
+      <h2>What I Do</h2>
+      <ul>
+        <li><strong>Penetration Testing:</strong> Simulated attacks to reveal real vulnerabilities in your systems.</li>
+        <li><strong>Vulnerability Assessments:</strong> Scans and analysis to find and prioritize weaknesses.</li>
+        <li><strong>Network Security Audits:</strong> Deep inspections of your network configuration and architecture.</li>
+        <li><strong>Social Engineering Tests:</strong> Phishing and human-layer attacks to test your people, not just your machines.</li>
+        <li><strong>Red Team Operations:</strong> Full-scope adversarial simulations to stress-test your entire security posture.</li>
+        <li><strong>Incident Response & Forensics:</strong> Post-breach analysis and containment to get you back in control.</li>
+      </ul>
     </section>
 
     <section id="consultation-form" style="display:none;">
-  <h2>Request a Consultation</h2>
-  <form method="POST" action="https://formspree.io/f/manjpdne">
-    <label for="name">Name*</label>
-    <input type="text" id="name" name="name" required>
+      <h2>Request a Consultation</h2>
+      <form method="POST" action="https://formspree.io/f/manjpdne">
+        <label for="name">Name*</label>
+        <input type="text" id="name" name="name" required />
 
-    <label for="company">Company (Optional)</label>
-    <input type="text" id="company" name="company">
+        <label for="company">Company (Optional)</label>
+        <input type="text" id="company" name="company" />
 
-    <label for="phone">Phone</label>
-    <input type="tel" id="phone" name="phone">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" />
 
-    <label for="email">Email*</label>
-    <input type="email" id="email" name="email" required>
+        <label for="email">Email*</label>
+        <input type="email" id="email" name="email" required />
 
-    <label for="description">Project Description*</label>
-    <textarea id="description" name="description" rows="5" required></textarea>
+        <label for="description">Project Description*</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
 
-    <button type="submit">Submit</button>
-  </form>
-</section>
+        <button type="submit" class="neon-btn">Submit</button>
+      </form>
+    </section>
 
   </main>
 
   <footer>
-    <p>© 2025 Josh Wilson | All rights reserved</p>
+    <p>© 2025 Joshua Wilson | All rights reserved</p>
   </footer>
 
   <script>
-   function scrollToForm() {
-  const formSection = document.getElementById('consultation-form');
-
-  // Show the form
-  formSection.style.display = 'block';
-
-  // Trigger the fade/slide animation with 'show' class
-  setTimeout(() => {
-    formSection.classList.add('show');
-  }, 10);
-
-  // Smooth scroll to the form
-  formSection.scrollIntoView({ behavior: 'smooth' });
-}
-
+    function scrollToForm() {
+      const formSection = document.getElementById('consultation-form');
+      formSection.style.display = 'block';
       setTimeout(() => {
-        form.classList.add('show');
+        formSection.classList.add('show');
       }, 10);
+      formSection.scrollIntoView({ behavior: 'smooth' });
     }
-
-    // Typing animation
-    const phrases = [
-      "Ethical Hacker",
-      "AI Security Expert",
-      "Red Team Specialist",
-      "Defender of Digital Fortresses"
-    ];
-    let currentPhrase = 0;
-    let currentChar = 0;
-    const typedText = document.getElementById("typed-text");
-    const cursor = document.querySelector(".cursor");
-
-    function typeLoop() {
-      if (currentChar < phrases[currentPhrase].length) {
-        typedText.textContent += phrases[currentPhrase].charAt(currentChar);
-        currentChar++;
-        setTimeout(typeLoop, 80);
-      } else {
-        setTimeout(eraseLoop, 2000);
-      }
-    }
-
-    function eraseLoop() {
-      if (currentChar > 0) {
-        typedText.textContent = phrases[currentPhrase].substring(0, currentChar - 1);
-        currentChar--;
-        setTimeout(eraseLoop, 50);
-      } else {
-        currentPhrase = (currentPhrase + 1) % phrases.length;
-        setTimeout(typeLoop, 500);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      typeLoop();
-    });
-    // Theme toggle
-const toggleBtn = document.getElementById('toggle-theme');
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
-});
-
   </script>
+
 </body>
+</html>
+
 </html>
 
 </body>
