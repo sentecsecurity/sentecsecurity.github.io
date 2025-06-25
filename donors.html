@@ -3,140 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thank You Donors | Josh Wilson Security</title>
+  <title>Our Donors | Josh Wilson Security</title>
   <style>
     :root {
       --neon-green: #39ff14;
       --dark-bg: #0a0a0a;
-      --light-bg: #f9f9f9;
-      --text-dark: #222;
       --text-light: #eee;
       --border-radius: 12px;
     }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--dark-bg);
       color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
     }
-
-    header {
+    h1 {
+      color: var(--neon-green);
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .donor-board {
+      width: 100%;
+      max-width: 800px;
+      background: rgba(0,0,0,0.7);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: 0 0 30px var(--neon-green);
+    }
+    .donor {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      background: linear-gradient(90deg, #111, #000);
-      border-bottom: 2px solid var(--neon-green);
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .site-logo {
-      height: 50px;
-      border-radius: 8px;
-    }
-
-    .site-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--neon-green);
-    }
-
-    .header-nav a {
-      color: var(--neon-green);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 600;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 60px auto;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: var(--border-radius);
-      box-shadow: 0 0 20px #39ff1440;
-    }
-
-    h1 {
-      color: var(--neon-green);
-      text-align: center;
-    }
-
-    .donor-box {
-      background: #111;
-      border: 2px solid var(--neon-green);
-      border-radius: var(--border-radius);
+      background-color: #111;
       padding: 20px;
-      text-align: center;
-      margin-top: 30px;
-      box-shadow: 0 0 15px #00ff8840;
-      position: relative;
+      border-radius: var(--border-radius);
+      margin-bottom: 20px;
+      box-shadow: 0 0 12px rgba(57, 255, 20, 0.2);
     }
-
     .donor-name {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: bold;
-    }
-
-    .badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 0.9rem;
-      font-weight: 800;
-      animation: rainbowText 4s linear infinite;
-    }
-
-    @keyframes rainbowText {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      padding: 20px;
       color: var(--neon-green);
+    }
+    .badge {
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: bold;
       font-size: 0.9rem;
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400% 400%;
+      animation: rainbow 5s ease infinite;
+      color: #fff;
+      text-shadow: 0 0 5px #000;
+      white-space: nowrap;
+    }
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #777;
+      text-align: center;
     }
   </style>
 </head>
 <body>
+  <h1>Our Donors</h1>
 
-  <header>
-    <div class="header-left">
-      <img src="Logo.jpg" alt="Logo" class="site-logo" />
-      <span class="site-title">Josh Wilson Security</span>
-    </div>
-    <nav class="header-nav">
-      <a href="index.html">Home</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="about.html">About</a>
-      <a href="donors.html">Donors</a>
-    </nav>
-  </header>
-
-  <main>
-    <h1>Thank You to Our Donors</h1>
-
-    <div class="donor-box">
+  <div class="donor-board">
+    <div class="donor">
       <span class="donor-name">Schlunky</span>
-      <div class="badge">FIRST DONOR</div>
+      <span class="badge">FIRST DONOR</span>
     </div>
-  </main>
 
-  <footer>
-    © 2025 Josh Wilson | All Rights Reserved
-  </footer>
+    <!-- Placeholder for future donors -->
+    <div style="text-align:center; padding: 40px 20px; color: #666;">
+      More coming soon...
+    </div>
+  </div>
 
+  <div class="footer">
+    <p><a href="index.html" style="color: var(--neon-green); text-decoration: underline;">← Back to Home</a></p>
+  </div>
 </body>
 </html>
