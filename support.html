@@ -1,43 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Support Me</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support Me | Josh Wilson</title>
   <style>
-    body {
-      background-color: black;
-      color: var(--neon-green, #39ff14);
-      font-family: monospace;
-      text-align: center;
-      padding: 50px 20px;
+    :root {
+      --neon-green: #39ff14;
+      --dark-bg: #0a0a0a;
+      --text-light: #eee;
+      --border-radius: 12px;
     }
-    a {
-      color: var(--neon-green, #39ff14);
-      text-decoration: underline;
-      display: block;
-      margin: 15px 0;
-      font-size: 1.2em;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+    }
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #111, #000);
+      border-bottom: 2px solid var(--neon-green);
+      box-shadow: 0 2px 8px #00ff8820;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .site-logo {
+      height: 50px;
+      border-radius: 8px;
+    }
+    .site-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--neon-green);
+      user-select: none;
+    }
+    .header-nav a {
+      color: var(--neon-green);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 12px;
+    }
+    .header-nav a:hover {
+      color: #fff;
+    }
+    main {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: var(--border-radius);
+      box-shadow: 0 0 30px var(--neon-green);
+      text-align: center;
     }
     h1 {
-      font-size: 2.5em;
+      color: var(--neon-green);
       margin-bottom: 30px;
     }
-    .back {
-      margin-top: 40px;
+    .donation-links a {
+      display: block;
+      margin: 15px auto;
+      padding: 12px 20px;
+      width: fit-content;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--neon-green);
+      border: 2px solid var(--neon-green);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .donation-links a:hover {
+      background-color: var(--neon-green);
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--neon-green);
+      user-select: none;
+    }
+    footer img {
+      height: 50px;
+      filter: drop-shadow(0 0 10px var(--neon-green));
+    }
+    .footer-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+      }
+      .header-nav {
+        flex-direction: column;
+        width: 100%;
+      }
+      .header-nav a {
+        margin: 10px 0;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>💚 Support My Work</h1>
-  <p>If you’ve found anything helpful or just want to support the grind, here's how you can help out:</p>
 
-  <a href="https://venmo.com/Joshdagoat_02" target="_blank">Venmo</a>
-  <a href="https://cash.app/$Legendarycoke" target="_blank">Cash App</a>
-  <a href="https://www.amazon.com/hz/wishlist/ls/2AQ518BNID3DG" target="_blank">Amazon Wish List</a>
+  <header class="site-header">
+    <div class="header-left">
+      <img src="Logo.jpg" alt="Josh Wilson Logo" class="site-logo" />
+      <span class="site-title">Josh Wilson Security</span>
+    </div>
 
-  <div class="back">
-    <a href="index.html">⬅️ Back to Home</a>
-  </div>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="about.html">About Me</a>
+      <a href="donors.html">Donors</a>
+      <a href="support.html" style="font-weight: bold;">💚 Support Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>💚 Support My Mission</h1>
+    <p style="font-size: 1.1rem;">If I've helped you, taught you something, or inspired you — here's how you can support the journey:</p>
+    
+    <div class="donation-links">
+      <a href="https://venmo.com/Joshdagoat_02" target="_blank">📲 Venmo</a>
+      <a href="https://cash.app/$Legendarycoke" target="_blank">💵 Cash App</a>
+      <a href="https://www.amazon.com/hz/wishlist/ls/2AQ518BNID3DG" target="_blank">🎁 Amazon Wish List</a>
+    </div>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-flex">
+      <img src="Logo.jpg" alt="Left Logo" />
+      <div>
+        <p style="margin: 0;">Email: <a href="mailto:wilson.joshua8300@gmail.com" style="color: var(--neon-green); text-decoration: underline;">wilson.joshua8300@gmail.com</a></p>
+        <p style="margin: 5px 0 0;">© 2025 Josh Wilson | All rights reserved</p>
+      </div>
+      <img src="Logo.jpg" alt="Right Logo" />
+    </div>
+  </footer>
+
 </body>
 </html>
